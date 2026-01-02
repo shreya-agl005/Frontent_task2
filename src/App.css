@@ -123,3 +123,21 @@
 .bod{
   height:70vh;
 }
+
+.skeleton-wrapper {
+  padding: 40px;
+}
+
+.skeleton-line {
+  height: 25px;
+  background: #23516769;
+  margin-bottom: 12px;
+  border-radius: 4px;
+  animation: shimmer 1.2s infinite;
+}
+
+@keyframes shimmer {
+  0% { opacity: 0.6; }
+  50% { opacity: 1; }
+  100% { opacity: 0.6; }
+}
