@@ -50,33 +50,59 @@ const ProductListing = lazy(() => import('./pages/ProductListing'));
 const Cart = lazy(() => import('./pages/Cart'));
 const OrderConfirmation = lazy(() => import('./pages/OrderConfirmation'));
 
+// function App() {
+//   const [activePage, setActivePage] = useState('home');
+
+//   // Function to render the active page
+//   const renderPage = () => {
+//     switch (activePage) {
+//       case 'products':
+//         return <ProductListing />;
+//       case 'cart':
+//         return <Cart />;
+//       case 'order':
+//         return <OrderConfirmation />;
+//       default:
+//         return <Home />;
+//     }
+//   };
+
+//   return (
+//     <div className="app">
+//       {/* Header always visible */}
+//       <Header onNavigate={setActivePage} />
+
+//       {/* Lazy-loaded page with Skeleton fallback */}
+//       <Suspense fallback={<Skeleton />}>
+//         {renderPage()}
+//       </Suspense>
+//     </div>
+//   );
+//}
+
+// export default App;
+
+
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+
+
+
+
 function App() {
-  const [activePage, setActivePage] = useState('home');
-
-  // Function to render the active page
-  const renderPage = () => {
-    switch (activePage) {
-      case 'products':
-        return <ProductListing />;
-      case 'cart':
-        return <Cart />;
-      case 'order':
-        return <OrderConfirmation />;
-      default:
-        return <Home />;
-    }
-  };
-
   return (
-    <div className="app">
-      {/* Header always visible */}
-      <Header onNavigate={setActivePage} />
+    <Router>
+      <Header />
 
-      {/* Lazy-loaded page with Skeleton fallback */}
       <Suspense fallback={<Skeleton />}>
-        {renderPage()}
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/products" element={<ProductListing />} />
+          <Route path="/cart" element={<Cart />} />
+          <Route path="/order" element={<OrderConfirmation />} />
+        </Routes>
       </Suspense>
-    </div>
+
+    </Router>
   );
 }
 

@@ -1,0 +1,19 @@
+.product-listing {
+  height: 70vh;
+  padding: 40px;
+  background-color: #f9fafb;
+}
+
+.product-listing h2 {
+  font-family: "League Spartan", sans-serif;
+  font-size: 2rem;
+  color: #0b3d2e;
+  margin-bottom: 24px;
+}
+
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 24px;
+}
